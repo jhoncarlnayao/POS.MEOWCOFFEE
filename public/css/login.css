@@ -1,0 +1,67 @@
+body {
+    height: auto;
+    padding: auto;
+    margin: 20px;
+    overflow: hidden;
+}
+
+.loginform {
+    position: relative;
+    top: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loginimg{
+    width: 25rem;
+    height: 25rem;
+}
+
+
+.form {
+    position: relative;
+    bottom: 30px;
+}
+
+.card-title h2{
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 25px;
+    line-height: 30px;
+    color: black;
+}
+
+#signup{
+    /* font-family: "Inter"; */
+    font-weight: 700;
+    font-style: normal;
+}
+
+#buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#loginbutton{
+    width: 400px;
+    position: relative;
+    bottom: 15px;
+}
+
+.bottom-texts{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 10px;
+}
+
+#minitext2 {
+    font-size: 15px;
+    position: relative;
+    bottom: 5px;
+}
+
