@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\RegisterAccountController;
+use App\Http\Controllers\LoginAccountController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +15,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('login');
-})->name(name: 'login');
+})->name(name: 'login.page');
 
+//$ LOGIN ROUTE: 
+Route::post('/login', [LoginAccountController::class, 'login'])->name('login');
+
+Route::post('/logout', [LoginAccountController::class, 'logout'])->name('logout');
 
 Route::get('/register', function () {
     return view(view: 'register');
 })->name(name: 'register');
+
+//$ REGISTER ROUTE:
+Route::post('/register', [RegisterAccountController::class, 'register'])->name('register');  
+
+//$ DASHBOARD ROUTE:
+Route::get('/dashboard', function () {
+    return view(view: 'dashboard');
+})->middleware('auth')->name(name: 'dashboard');
+
 

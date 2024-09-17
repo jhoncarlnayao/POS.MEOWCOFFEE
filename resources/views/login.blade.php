@@ -33,8 +33,23 @@
             </div>
         </div>
     </nav>
-
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+  @endif
+@endif
     {{-- ! LOGIN FORM --}}
+    <form action="{{ route('login') }}" method="POST">
+        @csrf
     <div class="loginform">
         <div class="card lg:card-side bg-base-100 shadow-xl w-1/1 mx-auto">
             <figure>
@@ -66,11 +81,11 @@
                             d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
                             clip-rule="evenodd" />
                         </svg>
-                        <input type="password" class="grow" placeholder="Password" id="Password" name="Password"/>
+                        <input type="password" class="grow" placeholder="Password" id="Password" name="password"/>
                       </label>
                 </div>
                   <div class="card-actions justify-center flex flex-col" id="buttons">
-                    <button class="btn btn-wide bg-green-300" id="loginbutton">Log in</button>
+                    <button class="btn btn-wide bg-green-300" id="loginbutton" type="submit">Log in</button>
                 </div>
                 <div class="bottom-texts">
                     <h1>Don't have an Account? <a href="{{ route('register') }}" id="signup">Sign up</a></h1>
