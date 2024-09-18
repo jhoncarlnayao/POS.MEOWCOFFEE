@@ -24,7 +24,7 @@
                         <details>
                             <summary class="text-medium">User</summary>
                             <ul class="bg-base-200 rounded-t-none p-3 ">
-                                <li class="w-20"><a href="{{ route('login') }}">Sign in</a></li>
+                                <li class="w-20"><a href="{{ route('login.page') }}">Sign in</a></li>
                                 <li class="w-20"><a href="{{ route('register') }}">Sign up</a></li>
                             </ul>
                         </details>
@@ -100,7 +100,7 @@
                     <button class="btn btn-wide bg-green-300" id="registerbutton" type="submit">Sign up</button>
                 </div>
                 <div class="bottom-texts">
-                    <h1>Already have an Account ? <a href="{{ route('login') }}" id="login">Sign in</a></h1>
+                    <h1>Already have an Account ? <a href="{{ route('login.page') }}" id="login">Sign in</a></h1>
                 </div>
             </div>
         </div>

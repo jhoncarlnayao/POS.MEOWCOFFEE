@@ -23,13 +23,15 @@ class RegisterAccountController extends Controller
         $User = UserAccount::create([
             'Email' => $request->Email,
             'Username' => $request->Username,
-           'password' => Hash::make($request->password),
+            'Password' => Hash::make($request->password),
         ]);
     
         // Ensure you have a method for user authentication or remove this line if unnecessary
         // UserAccount::attempt($request->only('Username', 'Password'));
         // Auth::login(UserAccount::where('Username', $request->Username)->first());
         Auth::login($User);
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
         return redirect()->route('login.page'); 
     }
     

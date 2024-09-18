@@ -34,8 +34,13 @@ Route::get('/register', function () {
 Route::post('/register', [RegisterAccountController::class, 'register'])->name('register');  
 
 //$ DASHBOARD ROUTE:
-Route::get('/dashboard', function () {
-    return view(view: 'dashboard');
-})->middleware('auth')->name(name: 'dashboard');
+Route::middleware(['auth', 'no.cache'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard'); 
+    })->name('dashboard');
+});
 
+Route::get('/profile', function () {
+    return view('user.profile');
+})->name(name: 'user.profile');
 

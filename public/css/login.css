@@ -65,3 +65,13 @@ body {
     bottom: 5px;
 }
 
+/*$ WHEN LOGGING IN WRONG CREDENTIALS */
+#alert-wrongpassword{
+    width:35rem;
+}
+
+#alert-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
