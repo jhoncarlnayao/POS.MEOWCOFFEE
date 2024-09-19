@@ -36,5 +36,9 @@ class LoginAccountController extends Controller
         request()->session()->regenerateToken();
         return redirect()->route('login.page');
     }
+
+    public function profile(){
+        return view('user.profile');
+    }
 }
 

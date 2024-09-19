@@ -44,3 +44,10 @@ Route::get('/profile', function () {
     return view('user.profile');
 })->name(name: 'user.profile');
 
+Route::post('/profile', [LoginAccountController::class, 'profile'])->name('profile');
+
+// Route::middleware(['auth', 'no.cache'])->group(function () {
+//     Route::get('/profile', function () {
+//         return view('user.profile'); 
+//     })->name('user.profile');
+// });
