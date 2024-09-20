@@ -78,39 +78,101 @@
     </div>
 
     <div class="under-profile-container1">
-      <div class="flex w-full">
-        <div class="card bg-base-300 rounded-box grid h-14 w-[30%] flex-grow place-items-center ml-20 bg-neutral-100 text-black font-bold">Profile Information</div>
-        <div class="divider divider-horizontal divider-default"></div>
-        <div class="card bg-base-300 rounded-box grid h-14 w-[30%] flex-grow place-items-center  bg-neutral-100 text-black font-bold">Security Settings</div>
-        <div class="divider divider-horizontal divider-default"></div>
-        <div class="card bg-base-300 rounded-box grid h-14 w-[30%] flex-grow place-items-center mr-20  bg-neutral-100 text-black font-bold">Developer Mode</div>
-      </div>
-    </div>
-    
-    <div class="under-profile-container2">
-      <div class="flex w-full flex-col lg:flex-row">
-        <div class="card bg-base-300 rounded-box grid h-52 w-[30%] flex-grow place-items-center ml-20 bg-neutral-100 " id="profile-card1">
-          <input
-          type="file"
-          class="file-input file-input-bordered file-input-secondary bg-neutral-100 w-[60%]"/>
-          <label class="input input-bordered  input-secondary flex items-center gap-2 w-[60%] bg-neutral-100" id="profile-username">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-              class="h-4 w-4 opacity-70">
-              <path
-                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
-            </svg>
-            <input type="text" class="grow" placeholder="Username" />
-          </label>
+        <div class="flex w-full">
+            <div
+                class="card bg-base-300 rounded-box grid h-14 w-[30%] flex-grow place-items-center ml-20 bg-neutral-100 text-black font-bold">
+                Profile Information</div>
+            <div class="divider divider-horizontal divider-default"></div>
+            <div
+                class="card bg-base-300 rounded-box grid h-14 w-[30%] flex-grow place-items-center  bg-neutral-100 text-black font-bold">
+                Security Settings</div>
+            <div class="divider divider-horizontal divider-default"></div>
+            <div
+                class="card bg-base-300 rounded-box grid h-14 w-[30%] flex-grow place-items-center mr-20  bg-neutral-100 text-black font-bold">
+                Update Information</div>
         </div>
-        <div class="divider lg:divider-horizontal divider-default"></div>
-        <div class="card bg-base-300 rounded-box grid h-52 w-[30%] flex-grow place-items-center bg-neutral-100" id="profile-card2">content</div>
-        <div class="divider lg:divider-horizontal divider-default"></div>
-        <div class="card bg-base-300 rounded-box grid h-52 w-[30%] flex-grow place-items-center mr-20 bg-neutral-100" id="profile-card3">content</div>
-      </div>
     </div>
+
+    <div class="under-profile-container2">
+        <div class="flex w-full flex-col lg:flex-row">
+            <div class="card bg-base-300 rounded-box grid h-52 w-[30%] flex-grow place-items-center ml-20 bg-neutral-100 py-5"
+                id="profile-card1">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+              @endif
+                <form action="{{ route('update.userInformation') }}" method="post" id="update-user-form">
+                    @csrf
+                    @method('PUT')
+                <label class="input input-bordered  input-secondary flex items-center gap-2 w-[100%] bg-neutral-100" id="profile-username">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                        class="h-4 w-4 opacity-70">
+                        <path
+                            d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
+                    </svg>
+                    @if(Auth::check())
+                    <input type="text" class="grow" placeholder="Username" name="updateUsername" value="{{ Auth::user()->Username }}"/>
+                    @endif
+               
+               
+                </label>
+                <label class="form-control w-full max-w-xs">
+                    <div class="label">
+                        <span class="label-text font-bold">Profile Picture</span>
+                    </div>
+                    <input type="file" class="file-input file-input-secondary w-full max-w-xs bg-neutral-100" name="updateProfile"/>
+                </label>
+
+
+            </div>
+            <div class="divider lg:divider-horizontal divider-default"></div>
+            <div class="card bg-base-300 rounded-box grid h-52 w-[30%] flex-grow place-items-center bg-neutral-100 py-3"
+                id="profile-card2">
+                <label class="input input-secondary flex items-center gap-2 w-[60%] bg-neutral-100 ">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      class="h-4 w-4 opacity-70">
+                      <path
+                        d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
+                      <path
+                        d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
+                    </svg>
+                    @if(Auth::check())
+                    <input type="text" class="grow" placeholder="Email" name="updateEmail" value="{{ Auth::user()->Email }}"/>
+                    @endif
+                  </label>
+                <label class="input input-secondary flex items-center gap-2 bg-neutral-100 w-[60%]">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      class="h-4 w-4 opacity-70">
+                      <path
+                        fill-rule="evenodd"
+                        d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    @if(Auth::check())
+                    <input type="password" class="grow" placeholder="Password" name="updatePassword" value="{{ Auth::user()->Password }}"/>
+                    @endif
+                  </label>
+            </div>
+            <div class="divider lg:divider-horizontal divider-default"></div>
+            <div class="card bg-base-300 rounded-box grid h-52 w-[30%] flex-grow place-items-center mr-20 bg-neutral-100 py-10"
+                id="profile-card3">
+                {{-- <button class="btn btn-warning btn-wide">Apply</button> --}}
+                <button class="btn btn-success btn-wide " type="submit">Save Changes</button></div>
+                
+        </div>
+    </div>
+</form>
 
 
 </body>

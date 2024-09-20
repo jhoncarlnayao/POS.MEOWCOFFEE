@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\RegisterAccountController;
 use App\Http\Controllers\LoginAccountController;
+use App\Http\Controllers\UpdateAccount;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,7 @@ use App\Http\Controllers\LoginAccountController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 
 
 
@@ -33,21 +35,19 @@ Route::get('/register', function () {
 //$ REGISTER ROUTE:
 Route::post('/register', [RegisterAccountController::class, 'register'])->name('register');  
 
-//$ DASHBOARD ROUTE:
+//$ DASHBOARD ROUTE AND PROFILE ROUTE:
 Route::middleware(['auth', 'no.cache'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard'); 
     })->name('dashboard');
+
+    Route::get('/profile', function () {
+        return view('user.profile');
+    })->name('user.profile');
+
+    // ! PROFILE ROUTE
+    Route::post('/profile', [LoginAccountController::class, 'profile'])->name('profile');
+
+    // ! PROFILE UPDATE INFORMATION 
+    Route::put('/update-userInformation', [UpdateAccount::class, 'updateAccount'])->name('update.userInformation');
 });
-
-Route::get('/profile', function () {
-    return view('user.profile');
-})->name(name: 'user.profile');
-
-Route::post('/profile', [LoginAccountController::class, 'profile'])->name('profile');
-
-// Route::middleware(['auth', 'no.cache'])->group(function () {
-//     Route::get('/profile', function () {
-//         return view('user.profile'); 
-//     })->name('user.profile');
-// });
