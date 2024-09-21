@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\RegisterAccountController;
 use App\Http\Controllers\LoginAccountController;
 use App\Http\Controllers\UpdateAccount;
+use App\Http\Controllers\ViewFunctions;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,8 +47,11 @@ Route::middleware(['auth', 'no.cache'])->group(function () {
     })->name('user.profile');
 
     // ! PROFILE ROUTE
-    Route::post('/profile', [LoginAccountController::class, 'profile'])->name('profile');
+    Route::post('/profile', [ViewFunctions::class, 'profile'])->name('profile');
 
     // ! PROFILE UPDATE INFORMATION 
     Route::put('/update-userInformation', [UpdateAccount::class, 'updateAccount'])->name('update.userInformation');
+
+    // !HOME BUTTON NAVBAR
+    Route::post('/homebutton', [ViewFunctions::class, 'HomeButton'])->name('homebutton');
 });

@@ -14,7 +14,11 @@
     <nav>
         <div class="navbar bg-white-400 rounded-2xl shadow-xm">
             <div class="flex-1">
-                <a class="btn btn-ghost text-2xl font-bold text-black">Meow Coffee</a>
+                <form action="{{ route('homebutton') }}" method="POST" id="homebutton-nav">@csrf
+                <a class="btn btn-ghost text-2xl font-bold text-black"
+                    onclick="event.preventDefault(); document.getElementById('homebutton-nav').submit();">Meow Coffee</a>
+                </form>
+             
             </div>
             <div class="flex-none">
                 <div class="dropdown dropdown-end">
@@ -109,7 +113,8 @@
                 <form action="{{ route('update.userInformation') }}" method="post" id="update-user-form">
                     @csrf
                     @method('PUT')
-                <label class="input input-bordered  input-secondary flex items-center gap-2 w-[100%] bg-neutral-100" id="profile-username">
+                    
+                <label class="input input-bordered  border-gray-500 flex items-center gap-2 w-[100%] bg-neutral-100" id="profile-username">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
                         class="h-4 w-4 opacity-70">
                         <path
@@ -118,14 +123,12 @@
                     @if(Auth::check())
                     <input type="text" class="grow" placeholder="Username" name="updateUsername" value="{{ Auth::user()->Username }}"/>
                     @endif
-               
-               
                 </label>
                 <label class="form-control w-full max-w-xs">
                     <div class="label">
                         <span class="label-text font-bold">Profile Picture</span>
                     </div>
-                    <input type="file" class="file-input file-input-secondary w-full max-w-xs bg-neutral-100" name="updateProfile"/>
+                    <input type="file" class="file-input border-gray-500  w-full max-w-xs bg-neutral-100" name="updateProfile"/>
                 </label>
 
 
@@ -133,7 +136,7 @@
             <div class="divider lg:divider-horizontal divider-default"></div>
             <div class="card bg-base-300 rounded-box grid h-52 w-[30%] flex-grow place-items-center bg-neutral-100 py-3"
                 id="profile-card2">
-                <label class="input input-secondary flex items-center gap-2 w-[60%] bg-neutral-100 ">
+                <label class="input border-gray-500 flex items-center gap-2 w-[60%] bg-neutral-100 ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 16 16"
@@ -148,7 +151,7 @@
                     <input type="text" class="grow" placeholder="Email" name="updateEmail" value="{{ Auth::user()->Email }}"/>
                     @endif
                   </label>
-                <label class="input input-secondary flex items-center gap-2 bg-neutral-100 w-[60%]">
+                <label class="input border-gray-500  flex items-center gap-2 bg-neutral-100 w-[60%]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 16 16"

@@ -9,7 +9,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <nav>
+    <nav id="navbar">
         <div class="navbar bg-white-400 rounded-2xl shadow-xm">
             <div class="flex-1">
               <a class="btn btn-ghost text-2xl font-bold text-black">Meow Coffee</a>
@@ -63,7 +63,12 @@
                       <span class="badge">New</span>
                     </a>
                   </li>
-                  <li><a>Settings</a></li>
+                  <li><a><div class="form-control">
+                    <label class="label cursor-pointer">
+                      <span class="label-text mr-3">Dark Mode</span>
+                      <input type="checkbox" class="toggle ml-7" checked="checked" />
+                    </label>
+                  </div></a></li>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
@@ -74,5 +79,64 @@
             </div>
           </div>
     </nav>
+
+    <div id="bigcard-container">
+      <div class="bigcard">
+        <img src="{{ url('img/bigcard2.gif') }}" alt="">
+        <div class="bigcard-text">
+           <h1 class="text-5xl font-bold">Welcome to Meow Coffee!</h1>
+            <p class="py-6">
+            Take a break, grab a cup, and enjoy the cozy atmosphere with our special blends made just for you.
+          </p>
+          <div class="tooltip tooltip-right" data-tip="Start Your Day Now!">
+          <button class="btn btn-neutral">Order Now</button>
+          </div>
+        </div>
+      </div>
+      <div id="mini-information-container">
+        <div class="stats stats-vertical shadow rounded-l-none bg-white text-black drop-shadow-2xl">
+          <div class="stat cursor-pointer">
+            <div class="stat-title text-black">Total Coffees Ordered</div>
+            <div class="stat-value text-black">10</div>
+            <div class="stat-desc text-black">Cup of Coffee</div>
+          </div>
+        
+          <div class="stat cursor-pointer">
+            <div class="stat-title text-black">Favorite Coffee</div>
+            <div class="stat-value text-black">Grind Coffee</div>
+            <div class="stat-desc text-black">meow meow</div>
+          </div>
+        
+          <div class="stat cursor-pointer">
+            <div class="stat-title text-black">Total Amount Spend</div>
+            <div class="stat-value text-black">1,200</div>
+            <div class="stat-desc text-black">Philippine Peso</div>
+          </div>
+        </div>
+      </div>
+      <div class="divider divider-horizontal divider-neutral" id="divider1"></div>
+    </div>
+    
+
+
+    {{-- ! USER BUTTON AND BALANCE --}}
+    <div id="userbuttons-container">
+      <div class="userbuttons">
+        <div class="stats  bg-white text-black drop-shadow-2xl" id="card-balance">
+          <div class="stat">
+            <div class="stat-title text-2xl text-black">Current Balance</div>
+            <div class="stat-value text-8xl">89,400</div>
+            <div class="stat-desc text-black">Philippine Peso</div>
+          </div>
+        </div>
+      </div>
+      <div id="user-buttons1">
+        <button class="btn btn-active btn-confirm mb-3 mt-3 ">Deposit</button>
+        <button class="btn btn-active btn-confirm">Withdraw</button>
+      </div>
+    </div>
+
+
+    
 </body>
 </html>
