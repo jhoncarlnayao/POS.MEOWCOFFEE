@@ -97,20 +97,20 @@
         <div class="stats stats-vertical shadow rounded-l-none bg-white text-black drop-shadow-2xl">
           <div class="stat cursor-pointer">
             <div class="stat-title text-black">Total Coffees Ordered</div>
-            <div class="stat-value text-black">10</div>
+            <div class="stat-value text-indigo-500">10</div>
             <div class="stat-desc text-black">Cup of Coffee</div>
           </div>
         
           <div class="stat cursor-pointer">
             <div class="stat-title text-black">Favorite Coffee</div>
-            <div class="stat-value text-black">Grind Coffee</div>
+            <div class="stat-value text-indigo-500">Grind Coffee</div>
             <div class="stat-desc text-black">meow meow</div>
           </div>
         
           <div class="stat cursor-pointer">
             <div class="stat-title text-black">Total Amount Spend</div>
-            <div class="stat-value text-black">1,200</div>
-            <div class="stat-desc text-black">Philippine Peso</div>
+            <div class="stat-value text-indigo-500">1,200</div>
+            <div class="stat-desc text-black">Meow Currency</div>
           </div>
         </div>
       </div>
@@ -120,13 +120,13 @@
 
 
     {{-- ! USER BUTTON AND BALANCE --}}
-    <div id="userbuttons-container">
+    <div id="userbuttons-container" class="mr-3">
       <div class="userbuttons">
         <div class="stats  bg-white text-black drop-shadow-2xl" id="card-balance">
           <div class="stat">
             <div class="stat-title text-2xl text-black">Current Balance</div>
-            <div class="stat-value text-8xl">89,400</div>
-            <div class="stat-desc text-black">Philippine Peso</div>
+            <div class="stat-value text-8xl text-indigo-500">89,400</div>
+            <div class="stat-desc text-black">Meow Currency</div>
           </div>
         </div>
       </div>
@@ -136,7 +136,38 @@
       </div>
     </div>
 
+{{-- ! RECOMMENDED COFFEE'S --}}
+<div id="recommend-container">
+  <div id="recommend" class="drop-shadow-2xl mr-10 bg-gray-100 cursor-pointer transition-all  hover:scale-105 ">
+    <div id="icon-box" class="bg-indigo-400 mr-5">
+      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: ;msFilter:;"><path d="M5 2h2v3H5zm4 0h2v3H9zm4 0h2v3h-2zm6 7h-2V7H3v11c0 1.654 1.346 3 3 3h8c1.654 0 3-1.346 3-3h2c1.103 0 2-.897 2-2v-5c0-1.103-.897-2-2-2zm-4 9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9h10v9zm2-2v-5h2l.002 5H17z"></path></svg>
+    </div>
+    <div id="recommend-text" class="mb-1 ">
+      <div class="stat-title text-gray-500">Brew My Perfect Cup</div>
+      <div class="text-indigo-500 text-2xl stat-value">Grab a Coffee</div>
+    </div>
+  </div>
 
+  <div id="recommend2" class="drop-shadow-2xl mr-10 bg-gray-100 cursor-pointer transition-all hover:scale-105 ">
+    <div id="icon-box" class="bg-indigo-400 mr-5">
+      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: ;msFilter:;"><path d="M22 5c0-1.654-1.346-3-3-3H5C3.346 2 2 3.346 2 5v2.831c0 1.053.382 2.01 1 2.746V19c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-8.424c.618-.735 1-1.692 1-2.746V5zm-2 0v2.831c0 1.14-.849 2.112-1.891 2.167L18 10c-1.103 0-2-.897-2-2V4h3c.552 0 1 .449 1 1zM10 4h4v4c0 1.103-.897 2-2 2s-2-.897-2-2V4zM4 5c0-.551.448-1 1-1h3v4c0 1.103-.897 2-2 2l-.109-.003C4.849 9.943 4 8.971 4 7.831V5zm6 14v-3h4v3h-4zm6 0v-3c0-1.103-.897-2-2-2h-4c-1.103 0-2 .897-2 2v3H5v-7.131c.254.067.517.111.787.125A3.988 3.988 0 0 0 9 10.643c.733.832 1.807 1.357 3 1.357s2.267-.525 3-1.357a3.988 3.988 0 0 0 3.213 1.351c.271-.014.533-.058.787-.125V19h-3z"></path></svg>
+    </div>
+    <div id="recommend-text" class="mb-1 ">
+      <div class="stat-title text-gray-500 text-sm">Browse our exclusive Merch</div>
+      <div class="text-indigo-500 text-2xl stat-value">Meow Merchandise</div>
+    </div>
+  </div>
+
+  <div id="recommend3" class="drop-shadow-2xl  bg-gray-100 cursor-pointer transition-all hover:scale-105">
+    <div id="icon-box" class="bg-indigo-400 mr-5">
+      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: ;msFilter:;"><path d="M8.293 6.293 2.586 12l5.707 5.707 1.414-1.414L5.414 12l4.293-4.293zm7.414 11.414L21.414 12l-5.707-5.707-1.414 1.414L18.586 12l-4.293 4.293z"></path></svg>
+    </div>
+    <div id="recommend-text" class="mb-1 ">
+      <div class="stat-title text-gray-500">Get inspired with Meow quote.</div>
+      <div class="text-indigo-500 text-2xl stat-value">Daily Inspiration</div>
+    </div>
+  </div>
+</div>
     
 </body>
 </html>

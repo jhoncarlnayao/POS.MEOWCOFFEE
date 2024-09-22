@@ -2,14 +2,16 @@ html,body{
     height: 130vh;
     padding: 0;
     margin: 0;
-    overflow-x: hidden;
-    background-color: white;
+    /* overflow-x: hidden; */
+    background-color: rgb(241, 237, 237);
 }
 
 #navbar{
     position: sticky;
     top: 0;
     z-index: 999999;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
     
 }
 
@@ -84,7 +86,7 @@ html,body{
 
 #divider1{
     position: relative;
-    left: 0.8rem;
+    left: 0.5rem;
 }
 
 #user-buttons1{
@@ -103,3 +105,44 @@ html,body{
     height: 13.5rem;
 }
 
+#recommend-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    top: 2rem;
+    float: left;
+    margin-left: 50px;
+}
+
+#recommend,#recommend2,#recommend3{
+    width: 22rem;
+    height: 8rem;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#recommend2,#recommend3{
+    width: 25.4rem;
+}
+
+
+#icon-box{
+    width: 7rem;
+    height: 6rem;
+    border-radius: 25px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#recommend-text{
+    display: flex;
+    flex-direction: column;
+}
