@@ -13,4 +13,8 @@ class ViewFunctions extends Controller
     public function HomeButton(){
         return view('dashboard');
     }
+
+    public function menu(){
+        return view('user.menu');
+    }
 }

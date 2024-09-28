@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
     <title>Document</title>
     @vite('resources/css/app.css')
+    <script src="{{ asset('js/dashboard.js') }}"></script>
 </head>
 <body>
     <nav id="navbar">
@@ -40,7 +41,7 @@
                     <span class="text-lg font-bold">8 Items</span>
                     <span class="text-info">Subtotal: $999</span>
                     <div class="card-actions">
-                      <button class="btn btn-primary btn-block">View cart</button>
+                      <button class="btn btn-primary btn-block" id="view-cart1">View cart</button>
                     </div>
                   </div>
                 </div>
@@ -74,7 +75,7 @@
                 </form>
                 <li><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                 
-                </ul>
+                </ul></div>
               </div>
             </div>
           </div>
@@ -89,7 +90,10 @@
             Take a break, grab a cup, and enjoy the cozy atmosphere with our special blends made just for you.
           </p>
           <div class="tooltip tooltip-right" data-tip="Start Your Day Now!">
-          <button class="btn btn-neutral">Order Now</button>
+          <form action="{{ route('menupage') }}" method="POST">
+            @csrf
+            <button class="btn btn-neutral" >Order Now</button>
+          </form>
           </div>
         </div>
       </div>
@@ -135,18 +139,22 @@
         <button class="btn btn-active btn-confirm">Withdraw</button>
       </div>
     </div>
+    {{-- ! END --}}
 
-{{-- ! RECOMMENDED COFFEE'S --}}
+{{-- ! BUTTONS FOR GRAB A COFFEE, MEOW MERCHANDISE AND DAILY INSPIRATION --}}
 <div id="recommend-container">
-  <div id="recommend" class="drop-shadow-2xl mr-10 bg-gray-100 cursor-pointer transition-all  hover:scale-105 ">
-    <div id="icon-box" class="bg-indigo-400 mr-5">
-      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: ;msFilter:;"><path d="M5 2h2v3H5zm4 0h2v3H9zm4 0h2v3h-2zm6 7h-2V7H3v11c0 1.654 1.346 3 3 3h8c1.654 0 3-1.346 3-3h2c1.103 0 2-.897 2-2v-5c0-1.103-.897-2-2-2zm-4 9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9h10v9zm2-2v-5h2l.002 5H17z"></path></svg>
+  <form action="{{ route('menupage') }} " method="POST" id="menupage-button">@csrf
+    <div id="recommend" class="drop-shadow-2xl mr-10 bg-gray-100 cursor-pointer transition-all  hover:scale-105 " onclick="event.PreventDefault(); document.getElementById('menupage-button')submit();">
+      <div id="icon-box" class="bg-indigo-400 mr-5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: ;msFilter:;"><path d="M5 2h2v3H5zm4 0h2v3H9zm4 0h2v3h-2zm6 7h-2V7H3v11c0 1.654 1.346 3 3 3h8c1.654 0 3-1.346 3-3h2c1.103 0 2-.897 2-2v-5c0-1.103-.897-2-2-2zm-4 9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9h10v9zm2-2v-5h2l.002 5H17z"></path></svg>
+      </div>
+      <div id="recommend-text" class="mb-1 ">
+        <div class="stat-title text-gray-500">Brew My Perfect Cup</div>
+        <div class="text-indigo-500 text-2xl stat-value">Grab a Coffee</div>
+      </div>
     </div>
-    <div id="recommend-text" class="mb-1 ">
-      <div class="stat-title text-gray-500">Brew My Perfect Cup</div>
-      <div class="text-indigo-500 text-2xl stat-value">Grab a Coffee</div>
-    </div>
-  </div>
+  </form>
+  
 
   <div id="recommend2" class="drop-shadow-2xl mr-10 bg-gray-100 cursor-pointer transition-all hover:scale-105 ">
     <div id="icon-box" class="bg-indigo-400 mr-5">
@@ -168,6 +176,159 @@
     </div>
   </div>
 </div>
-    
+{{--!END  --}}
+
+{{-- !RECOMMENDED COFFEE'S --}}
+<div id="recommendedCoffee-container">
+  <div class="text-neutral-700 text-4xl stat-value" id="recommend-title">Recommended Meow Coffee's</div>
+  <div id="recommendedCoffee">
+    <div id="coffeebox1">
+      {{-- ?COFFEE 1 --}}
+      <div class="card card-compact bg-base-100 w-96 shadow-xl mr-11 drop-shadow-2xl bg-white">
+        <figure>
+          <img
+            src="https://i.pinimg.com/564x/27/78/0f/27780fc651dff0eb419b06ecf93a3055.jpg"
+            alt="Shoes" />
+        </figure>
+        <div class="card-body text-black">
+          <h2 class="stat-value text-black">Coffee One</h2>
+          <p class="stat-desc text-black">If a dog chews shoes whose shoes does he choose?</p>
+          <div class="badge badge-secondary  badge-outline h-[38px]  mt-2"><img src="{{ asset('img/dog-paw.png') }}" alt="">100 Meow Currency</div>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary w-[22rem] mt-5" onclick="addToCart('Coffee1', 'If a dog chews shoes whose shoes does he choose?', 200)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      {{-- ? COFFEE 2 --}}
+      <div class="card card-compact bg-base-100 w-96 shadow-xl mr-11 drop-shadow-2xl bg-white">
+        <figure>
+          <img
+            src="https://i.pinimg.com/564x/88/6c/0a/886c0afc6af89cf9302d715a21e69b1e.jpg"
+            alt="Shoes" />
+        </figure>
+        <div class="card-body text-black">
+          <h2 class="stat-value text-black">Coffee Two</h2>
+          <p class="stat-desc text-black">If a dog chews shoes whose shoes does he choose?</p>
+          <div class="badge badge-secondary  badge-outline h-[38px]  mt-2"><img src="{{ asset('img/dog-paw.png') }}" alt="">200 Meow Currency</div>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary w-[22rem] mt-5 " onclick="addToCart('Coffee2', 'If a dog chews shoes whose shoes does he choose?', 200)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      {{-- ? COFFEE 3 --}}
+      <div class="card card-compact bg-base-100 w-96 shadow-xl drop-shadow-2xl bg-white">
+        <figure>
+            <img src="https://i.pinimg.com/564x/3e/17/9c/3e179ccb4c3f0e0e1f59a02cad16fbb6.jpg" alt="Coffee" />
+        </figure>
+        <div class="card-body text-black">
+          <h2 class="stat-value text-black">Coffee Three</h2>
+          <p class="stat-desc text-black">If a dog chews shoes whose shoes does he choose?</p>
+          <div class="badge badge-secondary  badge-outline h-[38px] mt-2"><img src="{{ asset('img/dog-paw.png') }}" alt="">300 Meow Currency</div>
+            <div class="card-actions justify-end">
+                <button class="btn btn-primary  w-[22rem] mt-5" onclick="addToCart('Coffee3', 'If a dog chews shoes whose shoes does he choose?', 300)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+{{-- !VIEW CART --}}
+<div id="viewcart-display" style="display: none;">
+<div id="viewcart-container">
+  <div id="viewcart">
+    <div class="overflow-x-auto">
+      <table class="table">
+        <!-- head -->
+        <thead>
+          <tr>
+            <th>
+              <label>
+                <input type="checkbox" class="checkbox" />
+              </label>
+            </th>
+            <th>Item</th>
+            <th>Description Item</th>
+            <th>Price</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- row 1 -->
+          <tr>
+            <th>
+              <label>
+                <input type="checkbox" class="checkbox" />
+              </label>
+            </th>
+            <td>
+              <div class="flex items-center gap-3">
+                <div class="avatar">
+                  <div class="mask mask-squircle h-12 w-12">
+                    <img
+                      src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+                      alt="Avatar Tailwind CSS Component" />
+                  </div>
+                </div>
+                <div>
+                  {{-- ! ITEM NAME --}}
+                  <div class="font-bold">Hart Hagerty</div> 
+                </div>
+              </div>
+            </td>
+            <td>
+              {{-- ! ITEM DESCRIPTION --}}
+              Zemlak, Daniel and Leannon
+              <br />
+            </td>
+            {{-- !ITEM PRICE --}}
+            <td>Purple</td>
+            <th>
+              <button class="btn btn-ghost btn-xs">details</button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+  document.getElementById('view-cart1').onclick = function() {
+    var viewCartDisplay = document.getElementById('viewcart-display');
+    var viewCartContainer = document.getElementById('viewcart-container');
+
+    // Toggle visibility of the cart modal
+    if (viewCartDisplay.style.display === 'none' || viewCartDisplay.style.display === '') {
+        viewCartDisplay.style.display = 'flex'; 
+        viewCartContainer.style.display = 'block';
+    } else {
+        viewCartDisplay.style.display = 'none';
+    }
+};
+
+
+function addToCart(item_name, description, price) {
+    fetch('/add-to-cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+        },
+        body: JSON.stringify({
+            item_name: item_name,
+            description: description,
+            price: price
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+    });
+}
+
+</script>
 </body>
 </html>

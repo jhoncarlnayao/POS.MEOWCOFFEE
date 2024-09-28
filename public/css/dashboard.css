@@ -1,5 +1,5 @@
 html,body{
-    height: 130vh;
+    height: 150vh;
     padding: 0;
     margin: 0;
     /* overflow-x: hidden; */
@@ -87,6 +87,7 @@ html,body{
 #divider1{
     position: relative;
     left: 0.5rem;
+    
 }
 
 #user-buttons1{
@@ -111,7 +112,7 @@ html,body{
     align-items: center;
     flex-direction: row;
     position: relative;
-    top: 2rem;
+    top: 3rem;
     float: left;
     margin-left: 50px;
 }
@@ -145,4 +146,50 @@ html,body{
 #recommend-text{
     display: flex;
     flex-direction: column;
+}
+
+
+#recommend-title{
+    position: relative;
+    top:13rem;
+    right: 78rem;
+}
+
+#coffeebox1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: absolute;
+    top: 45rem;
+    margin-left:3.4rem;
+}
+
+
+
+/* #viewcart-display{
+    display: none;
+} */
+
+#viewcart-container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   top:50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 9999;
+}
+
+#viewcart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90rem;
+    height: 40rem;
+    background-color: white;
+    z-index: 9999;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
 }

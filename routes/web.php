@@ -6,6 +6,8 @@ use App\Http\Controllers\RegisterAccountController;
 use App\Http\Controllers\LoginAccountController;
 use App\Http\Controllers\UpdateAccount;
 use App\Http\Controllers\ViewFunctions;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\AddtoCartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +38,12 @@ Route::get('/register', function () {
 //$ REGISTER ROUTE:
 Route::post('/register', [RegisterAccountController::class, 'register'])->name('register');  
 
+// $ ADD TO CART AND VIEW CART ROUTE:
+Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('addToCart');
+
+
+
+
 //$ DASHBOARD ROUTE AND PROFILE ROUTE:
 Route::middleware(['auth', 'no.cache'])->group(function () {
     Route::get('/dashboard', function () {
@@ -46,6 +54,10 @@ Route::middleware(['auth', 'no.cache'])->group(function () {
         return view('user.profile');
     })->name('user.profile');
 
+    Route::get('/menu', function(){
+        return view ('user.menu');
+    })->name('user.menu');
+
     // ! PROFILE ROUTE
     Route::post('/profile', [ViewFunctions::class, 'profile'])->name('profile');
 
@@ -54,4 +66,10 @@ Route::middleware(['auth', 'no.cache'])->group(function () {
 
     // !HOME BUTTON NAVBAR
     Route::post('/homebutton', [ViewFunctions::class, 'HomeButton'])->name('homebutton');
+
+    // !MENU
+
+    Route::post('/menupage',[ViewFunctions::class, 'menu'])->name('menupage');
+
+
 });
