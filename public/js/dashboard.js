@@ -13,24 +13,6 @@ document.getElementById('view-cart1').onclick = function() {
 };
 
 
-function addToCart(item_name, description, price) {
-    fetch('/add-to-cart', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-        },
-        body: JSON.stringify({
-            item_name: item_name,
-            description: description,
-            price: price
-        }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message);
-    });
-}
 
 
 document.addEventListener('DOMContentLoaded', function () {

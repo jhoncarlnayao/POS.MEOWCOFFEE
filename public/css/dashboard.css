@@ -88,6 +88,7 @@ html,body{
     position: relative;
     left: 0.5rem;
     
+    
 }
 
 #user-buttons1{
@@ -117,7 +118,7 @@ html,body{
     margin-left: 50px;
 }
 
-#recommend,#recommend2,#recommend3{
+#recommend,#recommend2,#recommend3,#recommend4{
     width: 22rem;
     height: 8rem;
     border-radius: 30px;
@@ -131,6 +132,9 @@ html,body{
     width: 25.4rem;
 }
 
+#recommend4{
+    width: 27.4rem;
+}
 
 #icon-box{
     width: 7rem;
@@ -152,7 +156,7 @@ html,body{
 #recommend-title{
     position: relative;
     top:13rem;
-    right: 78rem;
+    right: 107.4rem;
 }
 
 #coffeebox1{
@@ -219,4 +223,28 @@ html,body{
     z-index: 9999;
     border-radius: 30px;
     backdrop-filter: blur(10px);
+}
+
+
+
+
+/* !!! FOR DONATION CAT AREA */
+
+
+#donation-text{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 7.5rem;
+    width: 30rem;
+}
+
+#donation{
+    position: relative;
+    left: 7.5rem;
+    width: 30rem;
+}
+
+#donation-card1,#donation-card2{
+    margin-bottom: 2rem;
 }

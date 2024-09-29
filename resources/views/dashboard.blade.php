@@ -114,7 +114,7 @@
                 </div>
             </div>
         </div>
-        <div class="divider divider-horizontal divider-neutral" id="divider1"></div>
+        <div class="divider divider-horizontal divider-neutral " id="divider1"></div>
     </div>
 
 
@@ -174,7 +174,7 @@
             </div>
         </div>
 
-        <div id="recommend3" class="drop-shadow-2xl  bg-gray-100 cursor-pointer transition-all hover:scale-105">
+        <div id="recommend3" class="drop-shadow-2xl mr-10  bg-gray-100 cursor-pointer transition-all hover:scale-105">
             <div id="icon-box" class="bg-indigo-400 mr-5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24"
                     style="fill: rgb(255, 255, 255);transform: ;msFilter:;">
@@ -188,12 +188,27 @@
                 <div class="text-indigo-500 text-2xl stat-value">Daily Inspiration</div>
             </div>
         </div>
+
+        <div id="recommend4" class="drop-shadow-2xl  bg-gray-100 cursor-pointer transition-all hover:scale-105">
+            <div id="icon-box" class="bg-indigo-400 mr-5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24"
+                    style="fill: rgb(255, 255, 255);transform: ;msFilter:;">
+                    <path
+                        d="M8.293 6.293 2.586 12l5.707 5.707 1.414-1.414L5.414 12l4.293-4.293zm7.414 11.414L21.414 12l-5.707-5.707-1.414 1.414L18.586 12l-4.293 4.293z">
+                    </path>
+                </svg>
+            </div>
+            <div id="recommend-text" class="mb-1 ">
+                <div class="stat-title text-gray-500">Help us save lives—one purr at a time!</div>
+                <div class="text-indigo-500 text-2xl stat-value">Donate now!</div>
+            </div>
+        </div>
     </div>
     {{-- !END  --}}
 
 
 
-    <div class="text-neutral-700 text-4xl stat-value" id="recommend-title">Recommended Meow Coffee's</div>
+    <div class="text-neutral-700 text-6xl stat-value" id="recommend-title">Recommended Meow Coffee's</div>
     {{-- !RECOMMENDED COFFEE'S  1 --}}
     <div id="recommendedCoffee-container" style="display: none;">
         <div id="recommendedCoffee">
@@ -237,7 +252,7 @@
                 </div>
 
                 {{-- ? COFFEE 3 --}}
-                <div class="card card-compact bg-base-100 w-96 shadow-xl drop-shadow-2xl bg-white">
+                <div class="card card-compact bg-base-100 w-96 shadow-xl drop-shadow-2xl mr-11 bg-white">
                     <figure>
                         <img src="https://i.pinimg.com/564x/3e/17/9c/3e179ccb4c3f0e0e1f59a02cad16fbb6.jpg"
                             alt="Coffee" />
@@ -254,16 +269,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-
-    {{-- !RECOMMENDED COFFEE'S 2 --}}
-    <div id="recommendedCoffee-container2">
-        <div id="recommendedCoffee">
-            <div id="coffeebox1">
-                {{-- ?COFFEE 4 --}}
+                {{-- ? COFFEE 4 --}}
                 <div class="card card-compact bg-base-100 w-96 shadow-xl mr-11 drop-shadow-2xl bg-white">
                     <figure>
                         <img src="https://i.pinimg.com/564x/7f/61/36/7f613636340edbf3abff2f562d4082cd.jpg"
@@ -281,15 +288,42 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                {{-- ? COFFEE 5 --}}
+
+    {{-- !RECOMMENDED COFFEE'S 2 --}}
+    <div id="recommendedCoffee-container2">
+        <div id="recommendedCoffee">
+            <div id="coffeebox1">
+                {{-- ?COFFEE 5--}}
+               
+                <div class="card card-compact bg-base-100 w-96 shadow-xl mr-11 drop-shadow-2xl bg-white">
+                    <figure>
+                        <img src="https://i.pinimg.com/564x/7f/61/36/7f613636340edbf3abff2f562d4082cd.jpg"
+                            alt="Shoes" />
+                    </figure>
+                    <div class="card-body text-black">
+                        <h2 class="stat-value text-black">Coffee Five</h2>
+                        <p class="stat-desc text-black">If a dog chews shoes whose shoes does he choose?</p>
+                        <div class="badge badge-secondary  badge-outline h-[38px]  mt-2"><img
+                                src="{{ asset('img/dog-paw.png') }}" alt=""> &nbsp; 100 Meow Currency</div>
+                        <div class="card-actions justify-end">
+                            <button class="btn btn-primary w-[22rem] mt-5"
+                                onclick="addToCart('Coffee4', 'If a dog chews shoes whose shoes does he choose?', 200)">Add
+                                to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                {{-- ? COFFEE 6 --}}
                 <div class="card card-compact bg-base-100 w-96 shadow-xl mr-11 drop-shadow-2xl bg-white">
                     <figure>
                         <img src="https://i.pinimg.com/564x/6c/d7/9a/6cd79abd33db024e7cd4cd63b47907dc.jpg"
                             alt="Shoes" />
                     </figure>
                     <div class="card-body text-black">
-                        <h2 class="stat-value text-black">Coffee Five</h2>
+                        <h2 class="stat-value text-black">Coffee Six</h2>
                         <p class="stat-desc text-black">If a dog chews shoes whose shoes does he choose?</p>
                         <div class="badge badge-secondary  badge-outline h-[38px]  mt-2"><img
                                 src="{{ asset('img/dog-paw.png') }}" alt=""> &nbsp; 200 Meow Currency</div>
@@ -301,14 +335,33 @@
                     </div>
                 </div>
 
-                {{-- ? COFFEE 6 --}}
+                {{-- ? COFFEE 7 --}}
+                <div class="card card-compact bg-base-100 w-96 shadow-xl drop-shadow-2xl mr-11 bg-white">
+                    <figure>
+                        <img src="https://i.pinimg.com/564x/b8/54/db/b854db913204a206baf4cd5335b490d6.jpg"
+                            alt="Coffee" />
+                    </figure>
+                    <div class="card-body text-black">
+                        <h2 class="stat-value text-black">Coffee Seven</h2>
+                        <p class="stat-desc text-black">If a dog chews shoes whose shoes does he choose?</p>
+                        <div class="badge badge-secondary  badge-outline h-[38px] mt-2"><img
+                                src="{{ asset('img/dog-paw.png') }}" alt=""> &nbsp; 300 Meow Currency</div>
+                        <div class="card-actions justify-end">
+                            <button class="btn btn-primary  w-[22rem] mt-5"
+                                onclick="addToCart('Coffee6', 'If a dog chews shoes whose shoes does he choose?', 300)">Add
+                                to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- ? COFFEE 8 --}}
                 <div class="card card-compact bg-base-100 w-96 shadow-xl drop-shadow-2xl bg-white">
                     <figure>
                         <img src="https://i.pinimg.com/564x/b8/54/db/b854db913204a206baf4cd5335b490d6.jpg"
                             alt="Coffee" />
                     </figure>
                     <div class="card-body text-black">
-                        <h2 class="stat-value text-black">Coffee Six</h2>
+                        <h2 class="stat-value text-black">Coffee Eight</h2>
                         <p class="stat-desc text-black">If a dog chews shoes whose shoes does he choose?</p>
                         <div class="badge badge-secondary  badge-outline h-[38px] mt-2"><img
                                 src="{{ asset('img/dog-paw.png') }}" alt=""> &nbsp; 300 Meow Currency</div>
@@ -386,14 +439,31 @@
 
 
 
-<div id="donation-container">
-  <div id="donation">
-    
-  </div>
-</div>
+
 
 
     <script src="{{ asset('js/dashboard.js') }}"></script>
+
+    <script>
+        function addToCart(item_name, description, price) {
+    fetch('/add-to-cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+        },
+        body: JSON.stringify({
+            item_name: item_name,
+            description: description,
+            price: price
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+    });
+}
+    </script>
 </body>
 
 </html>
